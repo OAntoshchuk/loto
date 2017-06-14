@@ -14,7 +14,7 @@ $ball6 = ($_POST['ball6']);
 if ($ball1!='' && $ball2!='' && $ball3!='' && $ball4!='' && $ball5!='' && $ball6!=''){
 $massive = array($ball1, $ball2, $ball3, $ball4, $ball5, $ball6);
 } else {
-		die("Not all numbers are entered");
+		die("Not all digits are entered");
 }
 
 //var_export( $massive );
@@ -26,24 +26,35 @@ for ($i=0; $i <= 5; $i++) {
 		// тут должна быть проверка, чтоб не было повторных чисел
 
 	} else {
-		echo "Numbers out of range";
+		echo "digits out of range";
 	}
-	
 }
 
+/* из CSV массив*/
+
 $csv = array_map('str_getcsv', file('loto.csv'));
-var_export($csv);
+//var_export($csv);
 
-//if (in_array($massive, $csv)) {
-//	echo "11";
-//}
+/*
+		тут должна быть регуляка, чтоб выбрать в строках комбинации из 6 цифр
+		увеличиваем счётчик совпавших комбинаций при соблюдении условия что все 6 цифр совпало
 
-//for ($i=1;$i<=300;$i++){
-//$file = file("loto.csv", FILE_IGNORE_NEW_LINES);
-//$file[$i] = file("test2.csv", FILE_IGNORE_NEW_LINES);
+		проверка 5 цифр // счётчик + 1
 
-/*foreach ($file as $v)
-    if (preg_match(";(.*)$/", $v, $m))
-        if (array_key_exists($m[1], $result))
-            $result[$m[1]] = $m[2];
+		проверка 4 цифр  //  счётчик + 1
+
+		проверка 3 цифр  //  счётчик + 1
+
+		проверка 2 цифр  //  счётчик + 1
+*/
+
+/*
+
+		тут должен быть вывод результатов в таблицу
+		6 x 6
+		5 x 6
+		4 x 6
+		3 x 6
+		2 x 6
+
 */
